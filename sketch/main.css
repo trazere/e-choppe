@@ -3,6 +3,7 @@
 body {
 	/* box-sizing: border-box; */
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 12pt;
 	/* margin: 0px;
 	padding: 8px; */
 }
@@ -152,4 +153,25 @@ table.table {
 
 table.sale_table td {
 	text-align: right;
+}
+
+/* Button */
+
+button {
+	background-color: #FFFF40;
+	border: 1px #C0C0C0 solid;
+	border-width: 0px 1px 1px 0px;
+	color: black;
+	font-size: 12pt;
+	padding: 4px 8px;
+	vertical-align: top;
+	
+	&:active {
+		border-width: 1px 0px 0px 1px;
+	}
+}
+
+table button {
+	font-size: 9pt;
+	padding: 2px 4px;
 }
