@@ -81,7 +81,7 @@ ul.tab_bar {
 		&:hover {
 			background-color: #C0C0FF;
 		}
-		
+
 		&[href="#"] {
 			background-color: #4040FF;
 			color: white;
@@ -116,11 +116,11 @@ table.table {
 
 	& tbody {
 		& tr:nth-child(even) {
-			background-color: #F2F2F2;
+			background-color: #F0F0F0;
 		}
 
 		& tr:hover {
-			background-color: #F2F2FF;
+			background-color: #FFF0F0;
 		}
 	}
 
@@ -165,7 +165,12 @@ button {
 	font-size: 12pt;
 	padding: 4px 8px;
 	vertical-align: top;
-	
+
+	&:hover {
+		background-color: #E0E040;
+		cursor: pointer;
+	}
+
 	&:active {
 		border-width: 1px 0px 0px 1px;
 	}
