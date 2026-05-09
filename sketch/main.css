@@ -162,7 +162,9 @@ a.button {
 	color: black;
 	display: inline-block;
 	font-size: 12pt;
+	min-width: 100px;
 	padding: 4px 8px;
+	text-align: center;
 	vertical-align: middle;
 
 	&:hover {
@@ -177,5 +179,16 @@ a.button {
 
 table a.button {
 	font-size: 9pt;
+	min-width: 60px;
 	padding: 2px 4px;
+}
+
+
+/* Button bars */
+
+.button_bar {
+	column-gap: 10px;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
 }
