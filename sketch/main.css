@@ -51,11 +51,11 @@ body {
 	}
 }
 
-.centered {
+.centered { /* TODO: col/row variants ?? */
 	left: 50%;
 	position: relative;
 	transform: translate(-50%, 0);
-	/* width: fit-content; */
+	width: fit-content;
 }
 
 .reversed { /* TODO: col/row variants */
@@ -98,14 +98,12 @@ ul.tab_bar {
 		text-decoration: none;
 
 		&:hover {
-			background-color: #C0C0FF;
+			background-color: #B0B0B0;
 		}
 
-		&[href="#"],
 		&.active {
 			background-color: #4040FF;
 			color: white;
-			cursor: default;
 		}
 
 		&:not([href]) {
@@ -155,7 +153,7 @@ table.table {
 		border: none;
 		min-height: 20px;
 		padding: 2px 8px;
-		vertical-align: top;
+		vertical-align: baseline;
 	}
 
 	& th {
@@ -165,10 +163,15 @@ table.table {
 	& td {
 		text-align: left;
 	}
-}
-
-table.sale_table td {
-	text-align: right;
+	
+	& td.number {
+		text-align: right;
+	}
+	
+	& td:has(a.button) {
+		text-align: center;
+		width: 70px;
+	}
 }
 
 
@@ -197,10 +200,10 @@ a.button {
 }
 
 table a.button {
-	font-size: 9pt;
+	font-size: 8pt;
 	min-width: 60px;
 	padding: 2px 4px;
-	vertical-align: middle;
+	vertical-align: top;
 }
 
 
