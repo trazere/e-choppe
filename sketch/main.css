@@ -1,11 +1,13 @@
 /* Common */
 
 body {
-	/* box-sizing: border-box; */
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-size: 12pt;
 }
 
+* {
+	box-sizing: border-box;
+}
 
 /* Layout */
 
@@ -24,12 +26,16 @@ body {
 	display: flex;
 	flex-wrap: nowrap;
 	gap: 10px;
-	
-	/* & *,
+
+	& *,
 	& .static {
+		flex: 0 0 auto;
+	}
+
+	& .elastic {
 		flex: 0 1 auto;
-	} */
-	
+	}
+
 	& .greedy {
 		flex: 1 1 auto;
 	}
@@ -37,40 +43,43 @@ body {
 
 .col {
 	flex-flow: column;
-	
+
 	& .elastic {
-		overflow-y: hidden;
+		overflow-y: auto;
 	}
 }
 
 .row {
 	flex-flow: row;
-	
+
 	& .elastic {
-		overflow-x: hidden;
+		overflow-x: auto;
 	}
 }
 
-.centered { /* TODO: col/row variants ?? */
+.centered {
+	/* TODO: col/row variants ?? */
 	left: 50%;
 	position: relative;
 	transform: translate(-50%, 0);
 	width: fit-content;
 }
 
-.reversed { /* TODO: col/row variants */
+.reversed {
+	/* TODO: col/row variants */
 	display: flex;
 	flex-direction: column-reverse;
 }
 
-.scrollable { /* TODO: col/row variants */
+/* .scrollable {
+	TODO: col/row variants
 	bottom: 0px;
 	left: 0px;
 	max-height: 100%;
 	overflow: auto;
 	right: 0px;
 	top: 0px;
-}
+} */
 
 
 /* Tab bars */
@@ -98,7 +107,7 @@ ul.tab_bar {
 		text-decoration: none;
 
 		&:hover {
-			background-color: #B0B0B0;
+			filter: brightness(90%);
 		}
 
 		&.active {
@@ -163,11 +172,11 @@ table.table {
 	& td {
 		text-align: left;
 	}
-	
+
 	& td.number {
 		text-align: right;
 	}
-	
+
 	& td:has(a.button) {
 		text-align: center;
 		width: 70px;
@@ -179,8 +188,7 @@ table.table {
 
 a.button {
 	background-color: #FFFF40;
-	border: 1px #C0C0C0 solid;
-	border-width: 0px 1px 1px 0px;
+	border: 1px #C0C0C0 outset;
 	color: black;
 	display: inline-block;
 	font-size: 12pt;
@@ -188,18 +196,20 @@ a.button {
 	padding: 4px 8px;
 	text-align: center;
 	text-decoration: none;
-	
+
 	&:hover {
-		background-color: #E0E040;
 		cursor: pointer;
+		filter: brightness(90%);
 	}
-	
+
 	&:active {
-		border-width: 1px 0px 0px 1px;
+		border-style: inset;
 	}
 }
 
-table a.button {
+a.button.small,
+table a.button,
+.small a.button {
 	font-size: 8pt;
 	min-width: 60px;
 	padding: 2px 4px;
@@ -214,4 +224,95 @@ table a.button {
 	display: flex;
 	flex-direction: row;
 	justify-content: flex-end;
+}
+
+.helper_button_bar {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: 5px;
+}
+
+/* Radio button */
+
+label.radio {
+	background-color: #FFFF40;
+	border: 1px #C0C0C0 outset;
+	color: black;
+	display: inline-block;
+	font-size: 12pt;
+	min-width: 100px;
+	padding: 4px 8px;
+	text-align: center;
+	text-decoration: none;
+
+	&:hover {
+		cursor: pointer;
+		filter: brightness(90%);
+	}
+
+	&:active {
+		border-style: inset;
+	}
+
+	&:has(input:checked) {
+		border-style: inset;
+		filter: brightness(50%);
+	}
+
+	& input {
+		display: none;
+	}
+}
+
+
+/* Forms */
+
+.count_wrapper {
+	position: relative;
+
+	& input {
+		left: 0px;
+		position: absolute;
+		right: 0px;
+		text-align: right;
+	}
+}
+
+.currency_wrapper {
+	position: relative;
+
+	& input {
+		left: 0px;
+		position: absolute;
+		right: 20px;
+		text-align: right;
+	}
+
+	&::after {
+		content: "€";
+		position: absolute;
+		right: 0px;
+		text-align: center;
+		width: 20px;
+	}
+}
+
+.weight_wrapper {
+	position: relative;
+
+	& input {
+		left: 0px;
+		position: absolute;
+		right: 20px;
+		text-align: right;
+	}
+
+	&::after {
+		content: "g";
+		position: absolute;
+		right: 0px;
+		text-align: center;
+		width: 20px;
+	}
 }
