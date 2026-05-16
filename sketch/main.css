@@ -138,6 +138,10 @@ table.table {
 	}
 
 	& tbody {
+		& tr.highlight {
+			background-color: #FFE0E0;
+		}
+
 		& tr:nth-child(even) {
 			background-color: #F0F0F0;
 		}
