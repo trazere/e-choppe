@@ -1,0 +1,32 @@
+<configuration>
+  <logging>DEBUG</logging>
+
+  <!-- Configure the database connection here -->
+  <jdbc>
+    <driver>org.postgresql.Driver</driver>
+    <url>jdbc:postgresql:e-choppe</url>
+    <user>hophophop</user>
+    <password></password>
+
+    <!-- You can also pass user/password and other JDBC properties in the optional properties tag: -->
+    <properties>
+      <!-- <property><key>user</key><value>[db-user]</value></property> -->
+      <!-- <property><key>password</key><value>[db-password]</value></property> -->
+    </properties>
+  </jdbc>
+
+  <generator>
+    <database>
+      <name>org.jooq.meta.postgres.PostgresDatabase</name>
+      <includes>.*</includes>
+      <inputSchema>public</inputSchema>
+    </database>
+
+    <generate />
+
+    <target>
+      <packageName>fr.hop63.e-choppe.db</packageName>
+      <directory>app/db</directory>
+    </target>
+  </generator>
+</configuration>

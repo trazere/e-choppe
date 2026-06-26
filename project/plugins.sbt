@@ -1,2 +1,3 @@
-addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.10")
-addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8-scaffold" % "0.18.0")
+
+addSbtPlugin("org.playframework" % "sbt-plugin" % "3.0.11")
+addSbtPlugin("com.github.kxbmap" % "sbt-jooq-codegen" % "0.7.1")
